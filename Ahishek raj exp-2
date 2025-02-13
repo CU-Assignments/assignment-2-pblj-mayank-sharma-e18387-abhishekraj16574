@@ -1,0 +1,174 @@
+----------------problem 1----------------
+class Product {
+    private int id;
+    private String name;
+    private double price;
+
+    // Constructor to initialize product attributes
+    public Product(int id, String name, double price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+
+    // Method to display product details
+    public void displayProductDetails() {
+        System.out.println("\nProduct Details:");
+        System.out.println("ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Price: " + price);
+    }
+}
+
+public class ProductDemo {
+    public static void main(String[] args) {
+        // Creating a product object
+        Product product = new Product(101, "Laptop", 75000);
+
+        // Displaying product details
+        product.displayProductDetails();
+    }
+}
+
+
+
+-----------------------------problem 2--------------------------------
+
+
+
+// Base class
+class Book {
+    protected String title;
+    protected String author;
+    protected double price;
+
+    // Constructor
+    public Book(String title, String author, double price) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+
+    // Method to display book details
+    public void displayDetails() {
+        System.out.println("Title: " + title);
+        System.out.println("Author: " + author);
+        System.out.println("Price: " + price);
+    }
+}
+
+// Derived class for Fiction books
+class Fiction extends Book {
+    public Fiction(String title, String author, double price) {
+        super(title, author, price);
+    }
+
+    @Override
+    public void displayDetails() {
+        System.out.println("\nFiction Book Details:");
+        super.displayDetails();
+    }
+}
+
+// Derived class for Non-Fiction books
+class NonFiction extends Book {
+    public NonFiction(String title, String author, double price) {
+        super(title, author, price);
+    }
+
+    @Override
+    public void displayDetails() {
+        System.out.println("\nNon-Fiction Book Details:");
+        super.displayDetails();
+    }
+}
+
+// Main class to test the functionality
+public class LibraryManagement {
+    public static void main(String[] args) {
+        // Creating Fiction book object
+        Fiction fictionBook = new Fiction("Harry Potter", "J.K. Rowling", 500);
+        
+        // Creating Non-Fiction book object
+        NonFiction nonFictionBook = new NonFiction("Sapiens", "Yuval Noah Harari", 700);
+
+        // Displaying book details
+        fictionBook.displayDetails();
+        nonFictionBook.displayDetails();
+    }
+}
+
+
+
+--------------------------problem 3--------------------------
+
+
+// Abstract class Person
+abstract class Person {
+    protected String name;
+    protected int age;
+
+    // Constructor
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Abstract method to display details
+    public abstract void displayDetails();
+}
+
+// Derived class Student
+class Student extends Person {
+    private int rollNumber;
+
+    // Constructor
+    public Student(String name, int age, int rollNumber) {
+        super(name, age);
+        this.rollNumber = rollNumber;
+    }
+
+    // Overriding displayDetails method
+    @Override
+    public void displayDetails() {
+        System.out.println("\nStudent Details:");
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Roll Number: " + rollNumber);
+    }
+}
+
+// Derived class Teacher
+class Teacher extends Person {
+    private String subject;
+
+    // Constructor
+    public Teacher(String name, int age, String subject) {
+        super(name, age);
+        this.subject = subject;
+    }
+
+    // Overriding displayDetails method
+    @Override
+    public void displayDetails() {
+        System.out.println("\nTeacher Details:");
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Subject: " + subject);
+    }
+}
+
+// Main class
+public class StudentInformationSystem {
+    public static void main(String[] args) {
+        // Creating a Student object
+        Student student = new Student("Alice", 20, 101);
+        
+        // Creating a Teacher object
+        Teacher teacher = new Teacher("Mr. Smith", 40, "Mathematics");
+
+        // Displaying details
+        student.displayDetails();
+        teacher.displayDetails();
+    }
+}
